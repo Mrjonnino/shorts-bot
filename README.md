@@ -163,4 +163,4 @@ YouTube, Telegram and your game. It is not affiliated with or endorsed by Sony, 
 
 ## License
 
-No license has been chosen yet. Until one is added, all rights are reserved by the author.
+Released under the [MIT License](LICENSE).
