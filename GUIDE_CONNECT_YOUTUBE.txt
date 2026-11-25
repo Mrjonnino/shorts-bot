@@ -1,0 +1,24 @@
+CONNECT YOUTUBE (official login) - one-time setup, about 10 minutes
+===================================================================
+
+Why: with the official login the app can see your private videos without cookies,
+and it never expires (once your Google app is published to production).
+
+1. Go to https://console.cloud.google.com and sign in with the Google account that owns your channel.
+2. Create a NEW PROJECT (any name).
+3. APIs & Services -> Library -> search "YouTube Data API v3" -> Enable.
+4. Google Auth Platform (OAuth consent screen):
+   - Audience: External.
+   - Fill in an app name and your email, accept the policy.
+   - While the project is in "Testing", add your own Google account under Audience -> Test users
+     (the login then expires every 7 days).
+   - To avoid the 7-day expiry, publish the app to production ("Publish app"). Google then asks
+     for a homepage and a privacy policy URL; a simple free GitHub Pages page is enough.
+5. Clients -> Create client -> Application type: Desktop app -> Create -> Download JSON.
+6. Rename the downloaded file to client_secret.json and put it in the app folder.
+7. In the app: Settings -> Connect YouTube. The browser opens: choose your account and channel.
+   "Google hasn't verified this app" is normal (it is YOUR app): Advanced -> Go to (app) -> Continue -> Allow.
+
+The app only asks for what it needs (the "youtube" permission to switch private videos to unlisted).
+client_secret.json and youtube_token.json are SECRETS: never share or upload them.
+To remove access any time: https://myaccount.google.com/permissions
